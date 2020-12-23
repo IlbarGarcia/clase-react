@@ -4,8 +4,12 @@ import React,{Component} from "react" //hacemos la desustructuracion del objeto 
 class Formulario extends Component{
    //constructor recibe los atributos necesarios para poder crear una instancia de esta clase//
   constructor(props){
-     super(props) //con super le pasamos las props a la clase Component  
-
+     super(props) //con suoer le pasamos las props a la clase Component  
+  
+     this.state={ //creamos el estado inicial
+       nombre: "Ilbar Garcia",
+       correo: "Ilbar@uan.edu.co"
+     }
   } 
 
   //el metodo render es el unico que es obligatorio, si el elemento no requiere props, no es necesario que tenga un constructor
@@ -14,8 +18,18 @@ class Formulario extends Component{
     return(
       <div> 
         <h1>Formulario</h1>
-         <h2>{`Hola ${this.props.nombre}`}</h2>
-         <h3>{`tu correo es ${this.props.correo}`}</h3>
+       <br/> 
+        <form action="">
+         <label htmlfor="name" >Nombre</label>
+         <input type="text" className="name" /> 
+         <label htmlfor="correo" >Correo</label>
+         <input type="text" className="correo" /> 
+        </form>       
+       <br/>
+       <div>
+         <h2>{`Hola ${this.state.nombre}`}</h2> {/*llamamos este estado */}
+         <h2>{`con el correo ${this.state.correo}`}</h2>
+       </div>
       </div>
     )
   }

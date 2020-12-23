@@ -3,7 +3,7 @@ import Formulario from './Formulario'
 
 function App() {
   return (
-   <Formulario nombre="Ilbar Garcia" correo="ilbarmolano@gmail.com"/> 
+   <Formulario /> 
   );
 }
 
