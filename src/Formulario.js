@@ -7,8 +7,8 @@ class Formulario extends Component{
      super(props) //con suoer le pasamos las props a la clase Component  
   
      this.state={ //creamos el estado inicial
-       nombre: "Ilbar Garcia",
-       correo: "Ilbar@uan.edu.co"
+       nombre: "",
+       correo: ""
      }
   } 
 
@@ -21,9 +21,20 @@ class Formulario extends Component{
        <br/> 
         <form action="">
          <label htmlfor="name" >Nombre</label>
-         <input type="text" className="name" /> 
+         <input type="text" className="name" onChange ={e=>this.setState(
+           {
+             nombre:e.target.value
+           }
+
+         )} /> 
          <label htmlfor="correo" >Correo</label>
-         <input type="text" className="correo" /> 
+         {/*agregamos un evento onChange y cuando se produzca el evento llamamos el metodo setState que nos permite setear el nuevo estado, recibe un objeto con los nuevos valores */}
+         <input type="text" className="correo" onChange ={e=>this.setState(
+           {
+             correo:e.target.value
+           }
+
+         )} /> 
         </form>       
        <br/>
        <div>
