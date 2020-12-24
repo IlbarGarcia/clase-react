@@ -10,8 +10,13 @@ class Formulario extends Component{
        nombre: "",
        correo: ""
      }
+     
+     this.cambiarEstado=this.cambiarEstado.bind(this)//simpre que creemos un metodo debemos usar el metodo bind() el cual crea una nueva funcion que cuando se va a llamar tiene un contesto this asignaod por nosotros
   } 
-
+  cambiarEstado(e){ //creamos un metodo
+    this.setState(    
+           {correo:e.target.value})
+  }
   //el metodo render es el unico que es obligatorio, si el elemento no requiere props, no es necesario que tenga un constructor
   //con render retornamos el componente//
   render(){
@@ -25,16 +30,12 @@ class Formulario extends Component{
            {
              nombre:e.target.value
            }
-
-         )} /> 
+            
+         )} /> {/*aqui no llamamos una funcion externa sino ejecuamos un callback ahi mismo  */} 
          <label htmlfor="correo" >Correo</label>
          {/*agregamos un evento onChange y cuando se produzca el evento llamamos el metodo setState que nos permite setear el nuevo estado, recibe un objeto con los nuevos valores */}
-         <input type="text" className="correo" onChange ={e=>this.setState(
-           {
-             correo:e.target.value
-           }
-
-         )} /> 
+         <input type="text" className="correo" onChange ={this.cambiarEstado} />{/*llamamos el metodo this.
+         Cambiarnombre */} 
         </form>       
        <br/>
        <div>
